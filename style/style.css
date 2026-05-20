@@ -91,7 +91,7 @@
     width: 100%;
     height: 450px; /* Sesuaikan tinggi banner */
     /* Menggunakan gambar latar belakang perpustakaan (ganti URL jika memakai file lokal) */
-    background-image: url('image/Bg_Library.jpg');
+    background-image: url('../image/Bg_Library.jpg');
     background-size: cover;
     background-position: center;
 }
