@@ -14,12 +14,23 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+-- ========================================================
+-- 1. BUAT TABEL KATEGORI TERLEBIH DAHULU (Tabel Master)
+-- ========================================================
+CREATE TABLE IF NOT EXISTS `kategori` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama_kategori` varchar(100) NOT NULL,
+  `deskripsi_kategori` text,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping database structure for lautanlembar_db
-CREATE DATABASE IF NOT EXISTS `lautanlembar_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `lautanlembar_db`;
+DELETE FROM `kategori`;
 
--- Dumping structure for table lautanlembar_db.buku
+
+-- ========================================================
+-- 2. BUAT TABEL BUKU (Tabel yang memiliki Foreign Key)
+-- ========================================================
 CREATE TABLE IF NOT EXISTS `buku` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_kategori` int NOT NULL,
@@ -32,22 +43,10 @@ CREATE TABLE IF NOT EXISTS `buku` (
   PRIMARY KEY (`id`),
   KEY `id_kategori` (`id_kategori`),
   CONSTRAINT `buku_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table lautanlembar_db.buku: ~0 rows (approximately)
 DELETE FROM `buku`;
 
--- Dumping structure for table lautanlembar_db.kategori
-CREATE TABLE IF NOT EXISTS `kategori` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nama_kategori` varchar(100) NOT NULL,
-  `deskripsi_kategori` text,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- Dumping data for table lautanlembar_db.kategori: ~0 rows (approximately)
-DELETE FROM `kategori`;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
