@@ -12,9 +12,9 @@ $data_kategori = $query_kategori->fetch_assoc();
 $total_kategori = $data_kategori['total_kategori'];
 
 // (Opsional) Jika kamu juga ingin menghitung total buku nanti:
-// $query_buku = $koneksi->query("SELECT COUNT(*) AS total_buku FROM buku");
-// $data_buku = $query_buku->fetch_assoc();
-// $total_buku = $data_buku['total_buku'];
+$query_buku = $koneksi->query("SELECT COUNT(*) AS total_buku FROM buku");
+$data_buku = $query_buku->fetch_assoc();
+$total_buku = $data_buku['total_buku'];
 ?>
 
 <h1>Dashboard</h1>
@@ -28,7 +28,7 @@ $total_kategori = $data_kategori['total_kategori'];
                 <h5>Total Buku</h5>
             </div>
             <div class="total">
-                <h2>30</h2>
+                <h2><?= $total_buku ?></h2>
             </div>
         </div>
     </div>
@@ -45,47 +45,4 @@ $total_kategori = $data_kategori['total_kategori'];
             </div>
         </div>
     </div>
-</div>
-<div class="table-container">
-
-    <h2>Data Buku</h2>
-
-    <table>
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Judul Buku</th>
-                <th>Kategori</th>
-                <th>Penulis</th>
-                <th>Stok</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Belajar HTML</td>
-                <td>Pemrograman</td>
-                <td>Firman</td>
-                <td>10</td>
-                <td>
-                    <button class="edit">Edit</button>
-                    <button class="delete">Hapus</button>
-                </td>
-            </tr>
-
-            <tr>
-                <td>2</td>
-                <td>Belajar CSS</td>
-                <td>Design</td>
-                <td>Ahmad</td>
-                <td>5</td>
-                <td>
-                    <button class="edit">Edit</button>
-                    <button class="delete">Hapus</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>

@@ -1,21 +1,21 @@
 <?php
 
 class Database {
-    private $connection;
+    private $conn;
 
     public function getConnection() {
-        $this->connection = null;
+        $this->conn = null;
         try{
-            $this->connection = new mysqli("localhost", "root", '', "tokolautan_db");
+            $this->conn = new mysqli("localhost", "root", '', "tokolautan_db");
 
-            if($this->connection->connect_error) {
-                die("Connection failed: " . $this->connection->connect_error);
+            if($this->conn->connect_error) {
+                die("conn failed: " . $this->conn->connect_error);
             }
 
-            $this->connection->set_charset("utf8");
-            return $this->connection;
+            $this->conn->set_charset("utf8");
+            return $this->conn;
         } catch (Exception $e) {
-            echo "Connection failed : " . $e->getMessage();
+            echo "conn failed : " . $e->getMessage();
         }
     }
 }

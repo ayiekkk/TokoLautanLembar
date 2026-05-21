@@ -19,11 +19,13 @@
             <li><a href="index.php?page=dashboard">Dashboard</a></li>
             <li><a href="index.php?page=tambah-buku">Tambah Buku</a></li>
             <li><a href="index.php?page=tambah-kategori">Tambah Kategori</a></li>
+            <li><a href="../../index.php" target="_blank">Lihat Katalog (User)</a></li>
         </ul>
     </aside>
     <main>
         <?php include __DIR__ . "/../../routes/admin.php"; ?>
     </main>
+    <script src="../admin/style/script.js"></script>
 </body>
 
 </html>

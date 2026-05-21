@@ -156,7 +156,7 @@ button {
     background-color: white;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     max-width: 700px;
 }
 
@@ -205,4 +205,233 @@ form button {
 /* Hover Button */
 form button:hover {
     background-color: #334155;
+}
+
+#drop-zone {
+    border: 2px dashed #4a90e2;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    background-color: #f9fbfd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efek visual saat file berada di atas kotak */
+#drop-zone.active {
+    background-color: #ebf3fc;
+    border-color: #2372d6;
+    transform: scale(1.02);
+}
+
+#drop-zone span {
+    color: #4a90e2;
+    text-decoration: underline;
+}
+
+#file-list {
+    margin-top: 15px;
+    font-family: sans-serif;
+}
+
+.form-container {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.form-container h2 {
+    color: #1e293b;
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.form-container p.subtitle {
+    color: #64748b;
+    font-size: 0.875rem;
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+/* --- FORM GRID SYSTEM (2x2) --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Membuat 2 kolom sama rata */
+    gap: 20px;
+    /* Jarak antar input */
+    margin-bottom: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #1e293b;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* --- DRAG & DROP AREA (Paling Bawah) --- */
+.upload-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+.upload-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+#drop-zone {
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 35px 20px;
+    text-align: center;
+    background-color: #f8fafc;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+#drop-zone:hover {
+    border-color: #3b82f6;
+    background-color: #f0fdf4;
+}
+
+#drop-zone.active {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+    transform: scale(0.99);
+}
+
+.upload-icon {
+    width: 40px;
+    height: 40px;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+#drop-zone:hover .upload-icon,
+#drop-zone.active .upload-icon {
+    color: #3b82f6;
+}
+
+.drop-text {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.drop-text span {
+    color: #3b82f6;
+    font-weight: 600;
+}
+
+/* Pratinjau File Yang Dipilih */
+#file-preview {
+    margin-top: 12px;
+    display: none;
+    /* Sembunyi jika kosong */
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f1f5f9;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.file-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.file-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1e293b;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.file-size {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.remove-btn:hover {
+    color: #ef4444;
+}
+
+/* --- TOMBOL SUBMIT --- */
+.submit-btn {
+    width: 100%;
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #2563eb;
+}
+
+/* --- RESPONSIVITAS MOBILE --- */
+@media (max-width: 480px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+        /* Menjadi 1 kolom saja pada layar HP */
+        gap: 16px;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
 }
