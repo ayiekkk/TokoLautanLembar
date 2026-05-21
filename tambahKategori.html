@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <aside>
+        <h2>Panel Admin</h2>
+
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="tambahBuku.html">Tambah Buku</a></li>
+            <li><a href="tambahKategori.html">Tambah Kategori</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </aside>
+    <main>
+        <h1>Tambah Kategori</h1>
+        <div class="form">
+            <form action="">
+                <div class="form-group">
+                    <label for="">Nama Kategori</label>
+                    <input type="text" placeholder="Contoh : Fiksi">
+                </div>
+                <div class="form-group">
+                    <label for="">Deskripsi</label>
+                    <input type="text" placeholder=".....">
+                </div>
+                <button>Tambah</button>
+            </form>
+        </div>
+        <div class="table-container">
+            <h2>Data Kategori</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Kategori</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Belajar HTML</td>
+                        <td>
+                            <button class="edit">Edit</button>
+                            <button class="delete">Hapus</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Belajar CSS</td>
+                        <td>
+                            <button class="edit">Edit</button>
+                            <button class="delete">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

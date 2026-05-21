@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Sidebar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside>
+        <h2>My App</h2>
+
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="tambahBuku.html">Tambah Buku</a></li>
+            <li><a href="tambahKategori.html">Tambah Kategori</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </aside>
+
+    <!-- Content -->
+    <main>
+        <h1>Dashboard</h1>
+        <div class="info-boxes">
+            <div class="box">
+                <div class="box-icon">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <div class="box-content">
+                    <div class="sub-title">
+                        <h5>Total Buku</h5>
+                    </div>
+                    <div class="total">
+                        <h2>30</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-icon">
+                    <i class="fa-solid fa-bookmark"></i>
+                </div>
+                <div class="box-content">
+                    <div class="sub-title">
+                        <h5>Total Kategori</h5>
+                    </div>
+                    <div class="total">
+                        <h2>30</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-container">
+
+            <h2>Data Buku</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Judul Buku</th>
+                        <th>Kategori</th>
+                        <th>Penulis</th>
+                        <th>Stok</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Belajar HTML</td>
+                        <td>Pemrograman</td>
+                        <td>Firman</td>
+                        <td>10</td>
+                        <td>
+                            <button class="edit">Edit</button>
+                            <button class="delete">Hapus</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Belajar CSS</td>
+                        <td>Design</td>
+                        <td>Ahmad</td>
+                        <td>5</td>
+                        <td>
+                            <button class="edit">Edit</button>
+                            <button class="delete">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </main>
+
+
+
+</body>
+
+</html>
