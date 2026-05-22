@@ -1,6 +1,6 @@
 <?php
 // 1. Hubungkan ke database (pastikan nama DB sudah benar, misal: lautanlembar_db atau tokolautan_db)
-$koneksi = new mysqli("localhost", "root", "", "tokolautan_db"); 
+include_once __DIR__ . "/../../../config/database.php";
 
 if ($koneksi->connect_error) {
     die("Koneksi gagal: " . $koneksi->connect_error);

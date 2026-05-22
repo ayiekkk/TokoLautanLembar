@@ -1,6 +1,8 @@
 <?php
 
-$koneksi = new mysqli("localhost", "root", "", "tokolautan_db"); // Sesuaikan nama DB jika berbeda
+include_once __DIR__ . "/../../../config/database.php"; // Sesuaikan nama DB jika berbeda
+$db = new Database();
+$conn = $db->getConnection();
 
 $notifikasi = "";
 
@@ -13,7 +15,7 @@ $deskripsi_kategori_val = "";
 /* AMBIL DATA UNTUK DIEDIT (PROSES READ SINGLE DATA) */
 if (isset($_GET['edit'])) {
     $id_edit = $_GET['edit'];
-    $result_edit = $koneksi->query("SELECT * FROM kategori WHERE id = '$id_edit'");
+    $result_edit = $conn->query("SELECT * FROM kategori WHERE id = '$id_edit'");
     
     if ($result_edit->num_rows > 0) {
         $data_edit = $result_edit->fetch_assoc();
@@ -38,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['aksi_simpan']) && $_POST['aksi_simpan'] === 'update') {
             /* 1. Jika mode UPDATE/EDIT */
             $id_update = $_POST['id_kategori'];
-            $stmt = $koneksi->prepare("UPDATE kategori SET nama_kategori = ?, deskripsi_kategori = ? WHERE id = ?");
+            $stmt = $conn->prepare("UPDATE kategori SET nama_kategori = ?, deskripsi_kategori = ? WHERE id = ?");
             $stmt->bind_param("ssi", $namaKategori, $deskripsiKategori, $id_update);
 
             if ($stmt->execute()) {
@@ -52,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } else {
             /* 2. Jika mode INSERT/TAMBAH BARU */
-            $stmt = $koneksi->prepare("INSERT INTO kategori (nama_kategori, deskripsi_kategori) VALUES (?, ?)");
+            $stmt = $conn->prepare("INSERT INTO kategori (nama_kategori, deskripsi_kategori) VALUES (?, ?)");
             $stmt->bind_param("ss", $namaKategori, $deskripsiKategori);
 
             if ($stmt->execute()) {
@@ -71,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 /* PROSES HAPUS DATA */
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];
-    $koneksi->query("DELETE FROM kategori WHERE id = '$id'");
+    $conn->query("DELETE FROM kategori WHERE id = '$id'");
     echo "<script>
         alert('Data kategori dengan ID " . $id . " berhasil dihapus!');
         window.location.href = '?page=tambah-kategori';
@@ -80,7 +82,7 @@ if (isset($_GET['hapus'])) {
 }
 
 /* Ambil semua data untuk ditampilkan di tabel */
-$data_kategori = $koneksi->query("SELECT * FROM kategori ORDER BY id DESC");
+$data_kategori = $conn->query("SELECT * FROM kategori ORDER BY id DESC");
 ?>
 
 <main>

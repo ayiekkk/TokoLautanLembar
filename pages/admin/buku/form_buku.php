@@ -1,6 +1,6 @@
 <?php
 // 1. Hubungkan ke Database via Router Path Aman
-include_once $_SERVER['DOCUMENT_ROOT'] . "/LautanLembar-v2/config/database.php";
+include_once __DIR__ . "/../../../config/database.php";
 
 $db = new Database();
 $conn = $db->getConnection();
